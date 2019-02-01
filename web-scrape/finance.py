@@ -6,7 +6,7 @@ import scrapy
 class MovieSpider(scrapy.Spider):
 
     # name for crawl
-    name = 'financial_data2'
+    name = 'financial_data'
 
     # set spider settings
     custom_settings = {
@@ -17,9 +17,6 @@ class MovieSpider(scrapy.Spider):
 
     # iterate through pages to scrape from
     start_urls = ['https://www.the-numbers.com/movie/budgets/all']
-
-    #for num in range(1, 5601, 100):
-        #start_urls.append(f'https://www.the-numbers.com/movie/budgets/all/{num}')
 
     # function to select distributor links from year webpage
     def parse(self, response):
@@ -61,7 +58,7 @@ class MovieSpider(scrapy.Spider):
 
 
 
-        # yeild movie data values
+        # yield movie data values
         yield {
             'title': title,
             'budget': budget,
